@@ -1,3 +1,5 @@
+import { useForm } from "react-hook-form";
+import InputField from "../shared/InputField";
 
 
 const Login = () => {
@@ -12,8 +14,28 @@ const Login = () => {
     });
 
     return(
-        <div>
-            
-        </div>
+          <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
+
+                <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6">
+
+                <div className="w-full md:w-1/2 flex justify-center items-center p-4">
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
+                 <div className="flex flex-col items-center justify-center">
+                     <div className="flex flex-col gap-3">
+                <label>Username : </label>
+                <InputField />
+
+                <label>Password : </label>
+                <InputField />
+                </div>
+                </div>
+                </form>
+                </div>
+                </div>
+
+                </div>
     )
 }
+
+
+export default Login;

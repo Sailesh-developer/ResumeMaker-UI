@@ -1,4 +1,5 @@
 
+import Login from './components/auth/Login';
 import './index.css'; 
 
 function App() {
@@ -6,8 +7,8 @@ function App() {
 
   return (
     <>
-      <div className='text-4xl underline'>
-               Hi Sailesh
+      <div>
+               <Login />
       </div>
     </>
   )
