@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import InputField from "../shared/InputField";
-
+import resume_image from "../../assets/resume-login.png"
 
 const Login = () => {
 
@@ -15,8 +15,11 @@ const Login = () => {
 
     return(
           <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
+            
 
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6">
+                <img src={resume_image} alt="" className="max-w-full h-auto"/>
+                </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
@@ -31,7 +34,7 @@ const Login = () => {
                 </div>
                 </form>
                 </div>
-                </div>
+                
 
                 </div>
     )
