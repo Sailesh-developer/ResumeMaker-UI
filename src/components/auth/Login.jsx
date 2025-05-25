@@ -19,7 +19,7 @@ const Login = () => {
 
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6">
                 <img src={resume_image} alt="" className="max-w-full h-auto"/>
-                <p>Craft Your Resume. Shape Your Future</p>
+                <p className="text-slate-800 text-center font-montserrat lg:text-4xl text-2xl font-bold mr-12.5">Craft Your Resume. Shape Your Future</p>
                 </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
