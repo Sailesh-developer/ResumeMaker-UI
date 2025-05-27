@@ -13,6 +13,9 @@ module.exports =  {
         right: "10px 0px 10px -5px rgba(0, 0, 0, 0.3)",
       },
     },
+       backgroundImage: {
+            "button-gradient": "linear-gradient(to right, #52E5E7, #130CB7)"
+      },
   },
   plugins: [],
 }
