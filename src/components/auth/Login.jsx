@@ -25,9 +25,10 @@ const Login = () => {
           <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
             
 
-                <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6">
+                <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6 mt-12">
                 <img src={resume_image} alt="" className="max-w-full h-auto"/>
                 <p className="text-slate-800 text-center font-montserrat lg:text-4xl text-2xl font-bold mr-12.5">Craft Your Resume. Shape Your Future</p>
+                <p className="text-slate-800 font-montserrat font-normal md:ml-17 sm:ml-23 lg:ml-16">Build a standout resume tailored to your goals—unlock opportunities, impress employers, and take the next step in your career journey.</p>
                 </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
