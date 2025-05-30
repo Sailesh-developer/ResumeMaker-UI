@@ -6,6 +6,12 @@ import Check from '@mui/icons-material/Check';
 import SettingsIcon from '@mui/icons-material/Settings';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
+import PersonalInfo from './resumeComponents/PersonalInfo';
+import Education from './resumeComponents/Education';
+import WorkExperience from './resumeComponents/WorkExperience';
+import Projects from './resumeComponents/Projects';
+import TechnicalSkills from './resumeComponents/TechnicalSkills';
+import Achievements from './resumeComponents/Achievements';
 
 
 const Mainpage = () => {
@@ -88,7 +94,7 @@ function ColorlibStepIcon(props) {
     setActiveStep(0);
   };
 
-  const steps = ['Step One', 'Step Two', 'Step Three'];
+  const steps = ['Personal Information', 'Education', 'Work Experience', 'Projects', 'Technical Skills', 'Achievements'];
 
   return (
     <Box sx={{ width: '100%', mt: 5 }}>
@@ -100,27 +106,47 @@ function ColorlibStepIcon(props) {
         ))}
       </Stepper>
 
-      <Box sx={{ mt: 4, textAlign: 'center' }}>
-        {activeStep === steps.length ? (
-          <>
-            <Typography>All steps completed!</Typography>
-            <Button onClick={handleReset} sx={{ mt: 2 }}>Reset</Button>
-          </>
-        ) : (
-          <>
-            <Typography sx={{ mb: 2 }}>Step {activeStep + 1}: {steps[activeStep]}</Typography>
+      {activeStep === 0 && (
+        <PersonalInfo />
+      )}
+
+       {activeStep === 1 && (
+        <Education />
+      )}
+
+          {activeStep === 2 && (
+        <WorkExperience />
+      )}
+
+      {activeStep === 3 && (
+         <Projects />
+      )
+      }
+
+      {activeStep === 4 && (
+         <TechnicalSkills />
+      )
+      }
+
+      {activeStep === 5 && (
+         <Achievements />
+      )
+      }
+
+            <Box sx={{ textAlign: 'center'}}>
+             <>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
-              sx={{ mr: 1 }}
+              sx={{ mr: 10 }}
             >
               Back
             </Button>
-            <Button variant="contained" onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            <Button variant="contained" onClick={handleNext} disabled = {activeStep === 5}>
+              Next
             </Button>
-          </>
-        )}
+            </>
+        
       </Box>
     </Box>
   );
