@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../store/actions";
+import  toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const userLoginToMain = async (data) => {
-           dispatch(userLogin(data,navigate))
+           dispatch(userLogin(data,navigate,toast))
     }
 
     return(
@@ -56,6 +57,7 @@ const Login = () => {
                 <InputField 
                 register = {register}
                  id="password"
+                 type="password"
                 />
                 </div>
                 </div>

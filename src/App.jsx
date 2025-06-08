@@ -1,4 +1,5 @@
 
+import { Toaster } from 'react-hot-toast';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Mainpage from './components/Mainpage';
@@ -19,6 +20,7 @@ function App() {
       <Route path='/mainpage' element={<Mainpage/>}/>
           </Routes>  
       </Router>
+      <Toaster position='bottom-center' />
       </div>
     </>
   )

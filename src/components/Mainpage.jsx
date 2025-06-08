@@ -97,6 +97,9 @@ function ColorlibStepIcon(props) {
   const steps = ['Personal Information', 'Education', 'Work Experience', 'Projects', 'Technical Skills', 'Achievements'];
 
   return (
+    <>
+   
+    <button className="bg-button-gradient p-1.5 mt-4 text-slate-50 font-semibold cursor-pointer absolute right-0">Logout</button>
     <Box sx={{ width: '100%', mt: 5 }}>
       <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
         {steps.map((label) => (
@@ -149,6 +152,7 @@ function ColorlibStepIcon(props) {
         
       </Box>
     </Box>
+    </>
   );
 }
 
