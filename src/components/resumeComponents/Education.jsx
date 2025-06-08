@@ -1,8 +1,21 @@
 import InputField from "../shared/InputField";
-
+import { useForm } from "react-hook-form";
 
 
 const Education = () => {
+
+
+          const {
+             register,
+             handleSubmit,
+             reset,
+             formState: {errors},
+         } = useForm({
+             mode: "onTouched",
+         });
+
+
+
      return(
       <div className="flex justify-center items-center mt-10">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
@@ -16,27 +29,48 @@ const Education = () => {
                      <div className="flex flex-col gap-3 w-full overflow-y-scroll max-h-111.5">
               
                 <label>Institute Name : </label>
-                <InputField />
+                <InputField 
+                 register = {register}
+                 id="institute"
+                />
 
                 <label>Degree : </label>
-                <InputField />
+                <InputField 
+                 register = {register}
+                 id="degree"
+                />
 
                 <label>CGPA : </label>
-                <InputField />
+                <InputField 
+                 register = {register}
+                 id="cgpa"
+                />
 
                 <label>HSC : </label>
-                <InputField />
+                <InputField 
+                 register = {register}
+                 id="hsc"
+                />
 
-                <label>Percentage : </label>
-                <InputField />
+                <label>Percentage 12th : </label>
+                <InputField 
+                 register = {register}
+                 id="percentageTwelth"
+                />
 
                 
                 <label>SSLC : </label>
-                <InputField />
+                <InputField 
+                 register = {register}
+                 id="sslc"
+                />
 
                 
-                <label>Percentage : </label>
-                <InputField />
+                <label>Percentage 10th: </label>
+                <InputField 
+                 register = {register}
+                 id="percentageTenth"
+                />
                 </div>
                 </div>
                 <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>

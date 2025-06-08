@@ -4,6 +4,8 @@ import resume_image from "../../assets/resume-login.png";
 import { IoMdLogIn } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../store/actions";
 
 const Login = () => {
 
@@ -16,10 +18,12 @@ const Login = () => {
         mode: "onTouched",
     });
 
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
-    const navigateToMainPage = () => {
-           navigate("/mainpage")
+    const userLoginToMain = async (data) => {
+           dispatch(userLogin(data,navigate))
     }
 
     return(
@@ -33,7 +37,7 @@ const Login = () => {
                 </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(navigateToMainPage)}>
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(userLoginToMain)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <IoMdLogIn className = "text-slate-800 text-5xl"/>
@@ -43,10 +47,16 @@ const Login = () => {
                      <div className="flex flex-col gap-3 w-full">
                 <hr className="mt-2 mb-5 text-black"/>
                 <label>Username : </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                id="username"
+                />
 
                 <label>Password : </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                 id="password"
+                />
                 </div>
                 </div>
                 <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Login</button>

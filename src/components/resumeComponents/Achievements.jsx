@@ -1,7 +1,17 @@
 import InputField from "../shared/InputField";
-
+import { useForm } from "react-hook-form";
 
 const Achievements = () => {
+
+
+         const {
+            register,
+            handleSubmit,
+            reset,
+            formState: {errors},
+        } = useForm({
+            mode: "onTouched",
+        });
 
 
     const inputHeight = {
@@ -21,10 +31,17 @@ const Achievements = () => {
                      <div className="flex flex-col gap-3 w-full">
                 <hr className="mt-2 mb-5 text-black"/>
                 <label>Achievements : </label>
-                <InputField inputHeight={inputHeight.height}/>
+                <InputField 
+                inputHeight={inputHeight.height}
+                register = {register}
+                id="achievements"
+                />
 
                 <label>Portfolio URL (Optional): </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                id="portfolio"
+                />
 
                 </div>
                 </div>

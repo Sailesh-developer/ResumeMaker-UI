@@ -43,13 +43,22 @@ const Register = () => {
                      <div className="flex flex-col gap-3 w-full">
                 <hr className="mt-2 mb-5 text-black"/>
                 <label>Username : </label>
-                <InputField />
+                <InputField 
+                register={register}
+                id="username"
+                />
 
                 <label>Email : </label>
-                <InputField />
+                <InputField 
+                register={register}
+                id="email"
+                />
 
                 <label>Password : </label>
-                <InputField />
+                <InputField 
+                register={register}
+                id="password"
+                />
                 </div>
                 </div>
                 <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Register</button>

@@ -1,8 +1,17 @@
 import InputField from "../shared/InputField";
-
+import { useForm } from "react-hook-form";
 
 const TechnicalSkills = () => {
 
+
+         const {
+            register,
+            handleSubmit,
+            reset,
+            formState: {errors},
+        } = useForm({
+            mode: "onTouched",
+        });
 
     return(
               <div className="flex justify-center items-center mt-10">
@@ -16,13 +25,22 @@ const TechnicalSkills = () => {
                      <div className="flex flex-col gap-3 w-full">
                 <hr className="mt-2 mb-5 text-black"/>
                 <label>Languages : </label>
-                <InputField />
+                <InputField    
+                register = {register}
+                id="languages"
+                />
 
                 <label>Frameworks : </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                id="frameworks"
+                />
 
                 <label>Platforms : </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                id="platforms"
+                />
                 </div>
                 </div>
                 <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>

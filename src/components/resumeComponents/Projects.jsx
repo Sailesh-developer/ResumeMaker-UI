@@ -1,5 +1,5 @@
 import InputField from "../shared/InputField";
-
+import { useForm } from "react-hook-form";
 
 const Projects = () => {
 
@@ -7,6 +7,15 @@ const Projects = () => {
 const inputHeight = {
     height: "180px",
 }
+
+     const {
+        register,
+        handleSubmit,
+        reset,
+        formState: {errors},
+    } = useForm({
+        mode: "onTouched",
+    });
 
 
     return(
@@ -22,16 +31,30 @@ const inputHeight = {
                 <hr className="mt-2 mb-5 text-black"/>
                   <div className="flex flex-col gap-3 w-full overflow-y-scroll max-h-110">
                 <label>Project Title - 1 : </label>
-                <InputField />
+                <InputField    
+                register = {register}
+                id="projectTitleOne"
+                />
 
                 <label>Description : </label>
-                <InputField inputHeight={inputHeight.height}/>
+                <InputField 
+                inputHeight={inputHeight.height}
+                register = {register}
+                id="descriptionOne"
+                />
 
                 <label>Project Title - 2 : </label>
-                <InputField />
+                <InputField 
+                register = {register}
+                id="projectTitleTwo"
+                />
 
                 <label>Description : </label>
-                <InputField inputHeight={inputHeight.height}/>
+                <InputField 
+                inputHeight={inputHeight.height}
+                register = {register}
+                id="descriptionTwo"
+                />
                  </div>
                 </div>
                 </div>
