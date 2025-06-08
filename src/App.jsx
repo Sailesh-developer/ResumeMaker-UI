@@ -5,6 +5,7 @@ import Register from './components/auth/Register';
 import Mainpage from './components/Mainpage';
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <div>
         <Router>
+          <Navbar />
           <Routes>
       <Route path='/' element={<Login />}/>
       <Route path='/login' element={<Login />} /> 

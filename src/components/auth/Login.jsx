@@ -13,6 +13,7 @@ const Login = () => {
      const {
         register,
         handleSubmit,
+        watch,
         reset,
         formState: {errors},
     } = useForm({
@@ -27,14 +28,18 @@ const Login = () => {
            dispatch(userLogin(data,navigate,toast))
     }
 
+    const username = watch('username');
+    const password = watch('password');
+
+
     return(
           <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
             
 
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6 mt-12">
                 <img src={resume_image} alt="" className="max-w-full h-auto"/>
-                <p className="text-slate-800 text-center font-montserrat lg:text-4xl text-2xl font-bold mr-12.5">Craft Your Resume. Shape Your Future</p>
-                <p className="text-slate-800 font-montserrat font-normal md:ml-17 sm:ml-23 lg:ml-16">Build a standout resume tailored to your goals—unlock opportunities, impress employers, and take the next step in your career journey.</p>
+                <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#52E5E7] to-[#130CB7] text-center font-montserrat lg:text-4xl text-2xl font-bold mr-12.5 ">Craft Your Resume. Shape Your Future</p>
+                <p className="text-cyan-600 font-montserrat font-normal md:ml-17 sm:ml-23 lg:ml-16">Build a standout resume tailored to your goals—unlock opportunities, impress employers, and take the next step in your career journey.</p>
                 </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
@@ -55,13 +60,13 @@ const Login = () => {
 
                 <label>Password : </label>
                 <InputField 
-                register = {register}
+                 register = {register}
                  id="password"
                  type="password"
                 />
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Login</button>
+                <button className={`${!username || !password ? 'bg-button-gradient p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`} disabled={!username || !password}>Login</button>
                        <p className="text-center text-sm text-slate-700 mt-6">
                             Don't have an account? 
                             <Link to="/register"><span>SignUp</span></Link>

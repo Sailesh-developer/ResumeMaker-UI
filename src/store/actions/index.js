@@ -14,7 +14,8 @@ export const userLogin = (sendData,navigate,toast) => async (dispatch) => {
     console.log("login successful!");
 }
    catch(error){
-     console.log(error);
+     if(error.status === 404)
+     toast.error("User does not exist. Register and try again.")
    };
    
 }
