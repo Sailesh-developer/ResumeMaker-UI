@@ -1,14 +1,14 @@
 
 
 
-const InputField = ({inputHeight,register,id, type}) => {
+const InputField = ({inputHeight,register,id, type, placeholder}) => {
 
  console.log("typeof register:", typeof register); // should log 'function'
 
 
     return(
         <div className="flex flex-col gap-1 w-full">
-            <input type={type} className="px-2 py-2 border outline-none bg-transparent text-slate-800 rounded-md" style={{height : `${inputHeight}`}} id={id}
+            <input type={type} className="px-2 py-2 border outline-none bg-transparent text-slate-800 rounded-md" style={{height : `${inputHeight}`}} id={id} placeholder={placeholder}
             {...register(id)}
             />
         </div>

@@ -3,9 +3,12 @@ import { Box, Button, Step, StepLabel, Stepper, Typography } from '@mui/material
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import { styled } from '@mui/material/styles';
 import Check from '@mui/icons-material/Check';
-import SettingsIcon from '@mui/icons-material/Settings';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import VideoLabelIcon from '@mui/icons-material/VideoLabel';
+import InfoIcon from '@mui/icons-material/Info';
+import SchoolIcon from '@mui/icons-material/School';
+import WorkIcon from '@mui/icons-material/Work';
+import FolderIcon from '@mui/icons-material/Folder';
+import BoltIcon from '@mui/icons-material/Bolt';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import PersonalInfo from './resumeComponents/PersonalInfo';
 import Education from './resumeComponents/Education';
 import WorkExperience from './resumeComponents/WorkExperience';
@@ -60,9 +63,12 @@ function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
 
   const icons = {
-    1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    1: <InfoIcon />,
+    2: <SchoolIcon />,
+    3: <WorkIcon />,
+    4: <FolderIcon />,
+    5: <BoltIcon />,
+    6: <EmojiEventsIcon />
   };
 
   return (
@@ -100,7 +106,7 @@ function ColorlibStepIcon(props) {
     <>
     <div className='flex'>
     </div>
-    <Box sx={{ width: '100%', mt: 5 }}>
+    <Box sx={{ width: '100%', mt: 2 }}>
       <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
         {steps.map((label) => (
           <Step key={label}>

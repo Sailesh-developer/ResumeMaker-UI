@@ -46,18 +46,21 @@ const Register = () => {
                 <InputField 
                 register={register}
                 id="username"
+                placeholder="Enter Username"
                 />
 
                 <label>Email : </label>
                 <InputField 
                 register={register}
                 id="email"
+                placeholder="Enter Email"
                 />
 
                 <label>Password : </label>
                 <InputField 
                 register={register}
                 id="password"
+                placeholder="Enter Password"
                 />
                 </div>
                 </div>

@@ -17,7 +17,7 @@ const Education = () => {
 
 
      return(
-      <div className="flex justify-center items-center mt-10">
+      <div className="flex justify-center items-center mt-5">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
                

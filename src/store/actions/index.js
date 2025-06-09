@@ -19,3 +19,13 @@ export const userLogin = (sendData,navigate,toast) => async (dispatch) => {
    };
    
 }
+
+
+export const userLogout = (navigate,toast) => async (dispatch) => {
+  localStorage.removeItem("auth");
+  dispatch({
+    type : "USER_LOGOUT",
+  });
+  navigate("/login");
+  toast.success("Logged out successfully!")
+}

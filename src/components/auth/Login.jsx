@@ -56,6 +56,7 @@ const Login = () => {
                 <InputField 
                 register = {register}
                 id="username"
+                placeholder="Enter Username"
                 />
 
                 <label>Password : </label>
@@ -63,6 +64,7 @@ const Login = () => {
                  register = {register}
                  id="password"
                  type="password"
+                 placeholder="Enter Password"
                 />
                 </div>
                 </div>
