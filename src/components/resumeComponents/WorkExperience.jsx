@@ -33,6 +33,7 @@ const inputHeight = {
                 <InputField 
                 register = {register}
                 id="WorkProjectTitleOne"
+                placeholder="Enter Project Title"
                 />
 
                 <label>Description : </label>
@@ -40,12 +41,14 @@ const inputHeight = {
                 inputHeight={inputHeight.height}
                 register = {register}
                 id="workDescriptionOne"
+                placeholder="Description"
                 />
 
                 <label>Project Title - 2 : </label>
                 <InputField 
                 register = {register}
                 id="WorkProjectTitleTwo"
+                placeholder="Enter Project Title"
                 />
 
                 <label>Description : </label>
@@ -53,6 +56,7 @@ const inputHeight = {
                 inputHeight={inputHeight.height}
                 register = {register}
                 id="workDescriptionTwo"
+                placeholder="Description"
                 />
                  </div>
                 </div>

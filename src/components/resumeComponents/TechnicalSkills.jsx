@@ -28,18 +28,21 @@ const TechnicalSkills = () => {
                 <InputField    
                 register = {register}
                 id="languages"
+                placeholder="Enter Languages Known"
                 />
 
                 <label>Frameworks : </label>
                 <InputField 
                 register = {register}
                 id="frameworks"
+                placeholder="Enter Frameworks Known"
                 />
 
                 <label>Platforms : </label>
                 <InputField 
                 register = {register}
                 id="platforms"
+                placeholder="Enter Platforms Used"
                 />
                 </div>
                 </div>

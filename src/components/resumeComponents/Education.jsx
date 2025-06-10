@@ -32,30 +32,35 @@ const Education = () => {
                 <InputField 
                  register = {register}
                  id="institute"
+                 placeholder="Enter Institute Name"
                 />
 
                 <label>Degree : </label>
                 <InputField 
                  register = {register}
                  id="degree"
+                 placeholder="Enter Degree"
                 />
 
                 <label>CGPA : </label>
                 <InputField 
                  register = {register}
                  id="cgpa"
+                 placeholder="Enter CGPA"
                 />
 
                 <label>HSC : </label>
                 <InputField 
                  register = {register}
                  id="hsc"
+                 placeholder="Enter Institute Name"
                 />
 
                 <label>Percentage 12th : </label>
                 <InputField 
                  register = {register}
                  id="percentageTwelth"
+                 placeholder="Enter 12th Percentage"
                 />
 
                 
@@ -63,6 +68,7 @@ const Education = () => {
                 <InputField 
                  register = {register}
                  id="sslc"
+                 placeholder="Enter Institute Name"
                 />
 
                 
@@ -70,6 +76,7 @@ const Education = () => {
                 <InputField 
                  register = {register}
                  id="percentageTenth"
+                 placeholder="Enter 10th Percentage"
                 />
                 </div>
                 </div>

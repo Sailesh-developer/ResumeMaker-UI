@@ -35,12 +35,14 @@ const Achievements = () => {
                 inputHeight={inputHeight.height}
                 register = {register}
                 id="achievements"
+                placeholder="Enter Achievements"
                 />
 
                 <label>Portfolio URL (Optional): </label>
                 <InputField 
                 register = {register}
                 id="portfolio"
+                placeholder="Enter Portfolio URL"
                 />
 
                 </div>

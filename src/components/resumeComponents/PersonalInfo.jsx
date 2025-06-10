@@ -28,30 +28,35 @@ const PersonalInfo = () => {
                 <InputField 
                   register = {register}
                   id="name"
+                  placeholder="Enter Name"
                 />
 
                 <label>Email : </label>
                 <InputField 
                   register = {register}
                   id="email"
+                  placeholder="Enter Email"
                 />
 
                 <label>Contact : </label>
                 <InputField 
                   register = {register}
                   id="contact"
+                  placeholder="Enter Contact Number"
                 />
 
                 <label>Github username : </label>
                 <InputField 
                   register = {register}
                   id="githubUsername"
+                  placeholder="Enter Github Username"
                 />
 
                 <label>LinkedIn url : </label>
                 <InputField 
                   register = {register}
                   id="linkedinUrl"
+                  placeholder="Enter LinkedIn URL"
                 />
                 </div>
                 </div>
