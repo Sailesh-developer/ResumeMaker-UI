@@ -15,7 +15,7 @@ import WorkExperience from './resumeComponents/WorkExperience';
 import Projects from './resumeComponents/Projects';
 import TechnicalSkills from './resumeComponents/TechnicalSkills';
 import Achievements from './resumeComponents/Achievements';
-
+import { useNavigate } from "react-router-dom";
 
 const Mainpage = () => {
 
@@ -81,6 +81,11 @@ function ColorlibStepIcon(props) {
 
 
 
+    const navigate = useNavigate();
+
+    const navigateToPreview = () => {
+        navigate("/preview")
+    }
 
 
 
@@ -151,10 +156,18 @@ function ColorlibStepIcon(props) {
             >
               Back
             </Button>
-            <Button variant="contained" onClick={handleNext} disabled = {activeStep === 5}>
+            {activeStep === 5 ? (
+                 <Button variant="contained" onClick={navigateToPreview}>
+              Preview
+            </Button>
+            ) : (
+            <Button variant="contained" onClick={handleNext}>
               Next
             </Button>
-            </>
+            )
+          }
+          </>
+            
         
       </Box>
     </Box>

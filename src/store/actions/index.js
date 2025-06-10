@@ -29,3 +29,14 @@ export const userLogout = (navigate,toast) => async (dispatch) => {
   navigate("/login");
   toast.success("Logged out successfully!")
 }
+
+
+export const userRegister = (navigate,toast,sendData) => async (dispatch) => {
+  const {data} = await api.post("/auth/register" , sendData);
+  dispatch({
+    type : "USER_REGISTER",
+    payload : data,
+  });
+  navigate("/login");
+  toast.success("User Registered Successfully!")
+}

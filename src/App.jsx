@@ -6,6 +6,7 @@ import Mainpage from './components/Mainpage';
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import PreviewModal from './components/resumeComponents/PreviewModal';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path='/login' element={<Login />} /> 
       <Route path='/register' element={<Register />} />
       <Route path='/mainpage' element={<Mainpage/>}/>
+      <Route path='/preview' element={<PreviewModal/>}/>
           </Routes>  
       </Router>
       <Toaster position='bottom-center' />

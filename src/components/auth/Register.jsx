@@ -4,6 +4,9 @@ import resume_image from "../../assets/resume-login.png";
 import { IoMdLogIn } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { userRegister } from "../../store/actions";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
 
@@ -17,10 +20,11 @@ const Register = () => {
         mode: "onTouched",
     });
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const navigateToMainPage = () => {
-           navigate("/mainpage")
+    const user_Register = (data) => {
+          dispatch(userRegister(navigate,toast,data))
     }
 
     const username = watch('username');
@@ -38,7 +42,7 @@ const Register = () => {
                 </div>
 
                 <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(navigateToMainPage)}>
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(user_Register)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <IoMdLogIn className = "text-slate-800 text-5xl"/>
@@ -52,6 +56,7 @@ const Register = () => {
                 register={register}
                 id="username"
                 placeholder="Enter Username"
+                type="text"
                 />
 
                 <label>Email : </label>
@@ -59,6 +64,7 @@ const Register = () => {
                 register={register}
                 id="email"
                 placeholder="Enter Email"
+                type="text"
                 />
 
                 <label>Password : </label>
@@ -66,6 +72,7 @@ const Register = () => {
                 register={register}
                 id="password"
                 placeholder="Enter Password"
+                type="password"
                 />
                 </div>
                 </div>
