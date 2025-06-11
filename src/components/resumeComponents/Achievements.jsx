@@ -8,6 +8,7 @@ const Achievements = () => {
          const {
             register,
             handleSubmit,
+            watch,
             reset,
             formState: {errors},
         } = useForm({
@@ -19,6 +20,8 @@ const Achievements = () => {
     height: "120px",
     }
 
+    const achievements = watch('achievements');
+    const portfolio = watch('portfolio');
 
 
     return(
@@ -50,7 +53,7 @@ const Achievements = () => {
 
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
+                <button className={`${!achievements || !portfolio ? 'bg-button-gradient p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`}>Save</button>
                  
                 </form>
             

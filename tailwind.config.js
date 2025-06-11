@@ -17,5 +17,14 @@ module.exports =  {
             "button-gradient": "linear-gradient(to right, #52E5E7, #130CB7)"
       },
   },
-  plugins: [],
+  plugins: [
+        function ({ addUtilities }) {
+      addUtilities({
+        '.page-break': {
+          'page-break-after': 'always',
+          'break-after': 'page',
+        },
+      });
+    },
+  ],
 }

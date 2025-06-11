@@ -1,5 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
+import { saveProjectInfo } from "../../store/actions";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const Projects = () => {
 
@@ -18,10 +22,57 @@ const inputHeight = {
     });
 
 
+    const dispatch = useDispatch();
+
+    const savedProjectInfo = useSelector((state) => state.resume.projects)
+
+
+  //      const setProjectInfo = (data) => {
+  //    const formattedData = {
+  //   ...data,
+  //   descriptionOne: data.descriptionOne
+  //     .split('\n')
+  //     .map(line => line.trim())
+  //     .filter(line => line !== ""),
+      
+  //   descriptionTwo: data.descriptionTwo
+  //     .split('\n')
+  //     .map(line => line.trim())
+  //     .filter(line => line !== ""),
+  // };
+
+  //     dispatch(saveProjectInfo(toast, formattedData));
+  //   };
+
+const setProjectInfo = (data) => {
+  const formatToArray = (value) => {
+    if (Array.isArray(value)) return value;
+    return value
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line !== "");
+  };
+
+  const formattedData = {
+    ...data,
+    descriptionOne: formatToArray(data.descriptionOne),
+    descriptionTwo: formatToArray(data.descriptionTwo),
+  };
+
+  dispatch(saveProjectInfo(toast, formattedData));
+};
+
+
+        useEffect(() => {
+         if (savedProjectInfo) {
+        reset(savedProjectInfo);
+          }
+        }, [savedProjectInfo, reset]);
+
     return(
       <div className="flex justify-center items-center mt-5">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setProjectInfo)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <h1 className="text-slate-800 text-center font-montserrat lg:text-3xl text-2xl font-bold">
@@ -38,12 +89,13 @@ const inputHeight = {
                 />
 
                 <label>Description : </label>
-                <InputField 
-                inputHeight={inputHeight.height}
-                register = {register}
-                id="descriptionOne"
-                placeholder="Description"
-                />
+                   <textarea
+                      {...register("descriptionOne")}
+                      placeholder="Maximum of five points"
+                      rows={5}
+                      className="p-2 border"
+                      style={{ height: "250px" }}
+                    />
 
                 <label>Project Title - 2 : </label>
                 <InputField 
@@ -53,12 +105,13 @@ const inputHeight = {
                 />
 
                 <label>Description : </label>
-                <InputField 
-                inputHeight={inputHeight.height}
-                register = {register}
-                id="descriptionTwo"
-                placeholder="Description"
-                />
+                <textarea
+                      {...register("descriptionTwo")}
+                      placeholder="Maximum of five points"
+                      rows={5}
+                      className="p-2 border"
+                      style={{ height: "250px" }}
+                    />
                  </div>
                 </div>
                 </div>

@@ -1,6 +1,8 @@
+import { useDispatch } from "react-redux";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
-
+import { saveEducationInfo } from "../../store/actions";
+import toast from "react-hot-toast";
 
 const Education = () => {
 
@@ -14,12 +16,17 @@ const Education = () => {
              mode: "onTouched",
          });
 
+         const dispatch = useDispatch();
+
+         const setEducationInfo = (data) => {
+                dispatch(saveEducationInfo(toast, data));
+         }
 
 
      return(
       <div className="flex justify-center items-center mt-5">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setEducationInfo)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <h1 className="text-slate-800 text-center font-montserrat lg:text-3xl text-2xl font-bold">
@@ -31,14 +38,14 @@ const Education = () => {
                 <label>Institute Name : </label>
                 <InputField 
                  register = {register}
-                 id="institute"
+                 id="instituteName"
                  placeholder="Enter Institute Name"
                 />
 
                 <label>Degree : </label>
                 <InputField 
                  register = {register}
-                 id="degree"
+                 id="Degree"
                  placeholder="Enter Degree"
                 />
 

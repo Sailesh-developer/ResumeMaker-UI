@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
+import { savePersonalInfo } from "../../store/actions";
+import toast from "react-hot-toast";
 
 const PersonalInfo = () => {
 
@@ -13,10 +16,17 @@ const PersonalInfo = () => {
             mode: "onTouched",
         });
 
+        const dispatch = useDispatch();
+
+
+        const setPersonalInfo = (data) => {
+           dispatch(savePersonalInfo(toast,data))
+        }
+
     return(
         <div className="flex justify-center items-center mt-5">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setPersonalInfo)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <h1 className="text-slate-800 text-center font-montserrat lg:text-3xl text-2xl font-bold">
@@ -48,14 +58,14 @@ const PersonalInfo = () => {
                 <label>Github username : </label>
                 <InputField 
                   register = {register}
-                  id="githubUsername"
+                  id="gitUserName"
                   placeholder="Enter Github Username"
                 />
 
                 <label>LinkedIn url : </label>
                 <InputField 
                   register = {register}
-                  id="linkedinUrl"
+                  id="linkedInUrl"
                   placeholder="Enter LinkedIn URL"
                 />
                 </div>
