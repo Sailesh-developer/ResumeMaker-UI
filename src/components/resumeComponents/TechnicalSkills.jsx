@@ -1,5 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
+import { saveTechnicalSkills } from "../../store/actions";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const TechnicalSkills = () => {
 
@@ -13,10 +17,28 @@ const TechnicalSkills = () => {
             mode: "onTouched",
         });
 
+
+        const dispatch = useDispatch();
+
+
+        const setTechnicalSkills = (data) => {
+            dispatch(saveTechnicalSkills(toast, data));
+        }
+
+          const savedTechnicalSkills = useSelector((state) => state.resume.technicalSkills);
+
+          useEffect(() => {
+           if (savedTechnicalSkills) {
+          reset(savedTechnicalSkills);
+            }
+          }, [savedTechnicalSkills, reset]);
+
+
+
     return(
-              <div className="flex justify-center items-center mt-5">
+              <div className="flex justify-center items-center mt-4">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
-                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md">
+                <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setTechnicalSkills)}>
                
                  <div className="flex flex-col items-center justify-center">
                     <h1 className="text-slate-800 text-center font-montserrat lg:text-3xl text-2xl font-bold">
@@ -46,7 +68,7 @@ const TechnicalSkills = () => {
                 />
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
+                <button className="bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
                  
                 </form>
             

@@ -76,3 +76,20 @@ export const saveProjectInfo = (toast, sendData) => (dispatch) => {
   })
   toast.success("Projects saved successfully.")
 }
+
+export const saveTechnicalSkills = (toast, sendData) => (dispatch) => {
+  dispatch({
+    type: "SAVE_TECHNICAL_SKILLS",
+    payload: sendData,
+  })
+  toast.success("Technical Skills saved successfully.")
+}
+
+
+export const saveAchievements = (toast, sendData) => (dispatch) => {
+  dispatch({
+    type: "SAVE_ACHIEVEMENTS",
+    payload: sendData,
+  })
+  toast.success("Achievements saved successfully.")
+}

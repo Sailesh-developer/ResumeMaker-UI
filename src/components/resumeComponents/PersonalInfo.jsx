@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
 import { savePersonalInfo } from "../../store/actions";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const PersonalInfo = () => {
 
@@ -18,13 +19,21 @@ const PersonalInfo = () => {
 
         const dispatch = useDispatch();
 
+            const savedpersonalInfo = useSelector((state) => state.resume.personalInfo);
+
+            useEffect(() => {
+             if (savedpersonalInfo) {
+            reset(savedpersonalInfo);
+              }
+            }, [savedpersonalInfo, reset]);
+
 
         const setPersonalInfo = (data) => {
            dispatch(savePersonalInfo(toast,data))
         }
 
     return(
-        <div className="flex justify-center items-center mt-5">
+        <div className="flex justify-center items-center mt-4">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setPersonalInfo)}>
                
@@ -70,7 +79,7 @@ const PersonalInfo = () => {
                 />
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
+                <button className="bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
                  
                 </form>
             

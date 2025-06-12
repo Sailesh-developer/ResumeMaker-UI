@@ -76,7 +76,7 @@ const Register = () => {
                 />
                 </div>
                 </div>
-                <button className={`${!username || !password || !email ? 'bg-button-gradient p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`} disabled = {!username || !password || !email}>Register</button>
+                <button className={`${!username || !password || !email ? 'bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`} disabled = {!username || !password || !email}>Register</button>
                        <p className="text-center text-sm text-slate-700 mt-6">
                             Already have an account?
                             <Link to="/login"><span>Login</span></Link>

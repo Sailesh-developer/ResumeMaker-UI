@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InputField from "../shared/InputField";
 import { useForm } from "react-hook-form";
 import { saveEducationInfo } from "../../store/actions";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const Education = () => {
 
@@ -22,9 +23,17 @@ const Education = () => {
                 dispatch(saveEducationInfo(toast, data));
          }
 
+                const savedEducation = useSelector((state) => state.resume.education);
+
+    useEffect(() => {
+     if (savedEducation) {
+    reset(savedEducation);
+      }
+    }, [savedEducation, reset]);
+
 
      return(
-      <div className="flex justify-center items-center mt-5">
+      <div className="flex justify-center items-center mt-4">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setEducationInfo)}>
                
@@ -87,7 +96,7 @@ const Education = () => {
                 />
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
+                <button className="bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
                  
                 </form>
             

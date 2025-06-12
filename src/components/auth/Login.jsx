@@ -68,7 +68,7 @@ const Login = () => {
                 />
                 </div>
                 </div>
-                <button className={`${!username || !password ? 'bg-button-gradient p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`} disabled={!username || !password}>Login</button>
+                <button className={`${!username || !password ? 'bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-300 font-semibold cursor-not-allowed' :  'bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer'}`} disabled={!username || !password}>Login</button>
                        <p className="text-center text-sm text-slate-700 mt-6">
                             Don't have an account? 
                             <Link to="/register"><span>SignUp</span></Link>

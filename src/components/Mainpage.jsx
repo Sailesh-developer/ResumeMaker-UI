@@ -111,7 +111,7 @@ function ColorlibStepIcon(props) {
     <>
     <div className='flex'>
     </div>
-    <Box sx={{ width: '100%', mt: 2 }}>
+    <Box sx={{ width: '100%', mt: 3.5 }}>
       <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
         {steps.map((label) => (
           <Step key={label}>
@@ -157,13 +157,13 @@ function ColorlibStepIcon(props) {
               Back
             </Button>
             {activeStep === 5 ? (
-                 <Button variant="contained" onClick={navigateToPreview}>
+            <button className='bg-[#1e90ff] w-20 h-9 text-amber-50 rounded cursor-pointer' onClick={navigateToPreview}>
               Preview
-            </Button>
+            </button>
             ) : (
-            <Button variant="contained" onClick={handleNext}>
-              Next
-            </Button>
+            <button className='bg-[#1e90ff] w-20 h-9 text-amber-50 rounded cursor-pointer' onClick={handleNext}>
+              NEXT
+            </button>
             )
           }
           </>

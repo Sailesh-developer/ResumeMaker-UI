@@ -53,7 +53,7 @@ const setWorkExperience = (data) => {
 
 
     return(
-      <div className="flex justify-center items-center mt-5">
+      <div className="flex justify-center items-center mt-3">
        <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                 <form className="sm:w-[450px] w-[360px] shadow-custom py-8 sm:px-8 px-4 rounded-md" onSubmit={handleSubmit(setWorkExperience)}>
                
@@ -98,7 +98,7 @@ const setWorkExperience = (data) => {
                  </div>
                 </div>
                 </div>
-                <button className="bg-button-gradient p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
+                <button className="bg-[#1e90ff] p-1.5 mt-8 w-full text-slate-50 font-semibold cursor-pointer">Save</button>
                  
                 </form>
             
