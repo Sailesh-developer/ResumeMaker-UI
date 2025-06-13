@@ -1,2 +1,17 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
+
+
+/* @media print {
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .a4-layout {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    box-sizing: border-box;
+  }
+} */

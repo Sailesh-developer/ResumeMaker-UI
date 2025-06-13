@@ -4,6 +4,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import html2pdf from 'html2pdf.js';
+import { useRef } from 'react';
 
 const PreviewModal = () => {
 
@@ -26,6 +28,24 @@ const PreviewModal = () => {
   const { projectTitleOne, descriptionOne, projectTitleTwo, descriptionTwo } = getSavedProjectInfo;
   const { languages,frameworks,platforms } = getSavedTechnicalSkills;
   const { WorkProjectTitleOne,workDescriptionOne,WorkProjectTitleTwo,workDescriptionTwo } = getSavedWorkExperience;
+
+
+   const resumeRef = useRef();
+
+  const handleDownload = () => {
+    const element = resumeRef.current;
+
+   const opt = {
+    margin:       0,
+    filename:     'resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['css', 'legacy'] } 
+  };
+
+    html2pdf().set(opt).from(element).save();
+  };
   
 
     return(
@@ -37,7 +57,8 @@ const PreviewModal = () => {
                     <button className="relative left-180 text-slate-50 underline mt-2 cursor-pointer">Download</button>          
                     <button className="relative left-185 text-slate-50 underline mt-2 cursor-pointer" onClick={navigateToMain}>Close</button>
                  </div>
-                  <div className="w-[210mm] h-[297mm] bg-white shadow-md p-6 box-border">
+                 {/* <div ref={resumeRef}> */}
+                  <div className="w-[210mm] min-h-[297mm] bg-white p-[10mm] box-border text-[13px] leading-5">
                     <p className="text-shadow-black font-arial font-bold text-4xl mb-4">
                       {name}
                     </p>
@@ -76,6 +97,7 @@ const PreviewModal = () => {
                     </div>
                   {/* Technical skills end */}
 
+                   {/* Work Experience Starts */}
                   <div className="mt-2">
                     <span className="text-[19px] font-bold">WORK EXPERIENCE</span>
                     <div className="border-b border-black w-full mt-1"></div>
@@ -88,15 +110,55 @@ const PreviewModal = () => {
                                          <li>{point}</li>
                                       </ul>
                                 ))
-                                }</span>
+                                }
+                                </span>
+                               <span className="text-[13px] font-bold mt-1">{WorkProjectTitleTwo}</span>
+                               <span className="text-[13px] ml-1 mt-2"> 
+                                {workDescriptionTwo.map((point,index) => (
+                                      <ul key={index} className="list-disc pl-3">
+                                         <li>{point}</li>
+                                      </ul>
+                                ))
+                                }
+                                </span>
                         </div>
                       </div>
                   </div>
+                  {/* Work Experience ends */}
+
+                   <div className="mt-2">
+                    <span className="text-[19px] font-bold">PROJECTS</span>
+                    <div className="border-b border-black w-full mt-1"></div>
+                      <div className="flex flex-col">
+                         <div className="flex flex-col">
+                               <span className="text-[13px] font-bold mt-1">{WorkProjectTitleOne}</span>
+                               <span className="text-[13px] ml-1 mt-2"> 
+                                {workDescriptionOne.map((point,index) => (
+                                      <ul key={index} className="list-disc pl-3">
+                                         <li>{point}</li>
+                                      </ul>
+                                ))
+                                }
+                                </span>
+                               <span className="text-[13px] font-bold mt-1">{WorkProjectTitleTwo}</span>
+                               <span className="text-[13px] ml-1 mt-2"> 
+                                {workDescriptionTwo.map((point,index) => (
+                                      <ul key={index} className="list-disc pl-3">
+                                         <li>{point}</li>
+                                      </ul>
+                                ))
+                                }
+                                </span>
+                        </div>
+                      </div>
+                  </div>
+
                   </div>
 
        <div className="page-break"></div>
-        <div className="w-[210mm] h-[297mm] bg-white shadow-md flex items-center justify-center">
+        <div className="w-[210mm] min-h-[297mm] bg-white p-[20mm] box-border text-[13px] leading-5">
         </div>
+        {/* </div> */}
         </div>
        </div>
        </>
