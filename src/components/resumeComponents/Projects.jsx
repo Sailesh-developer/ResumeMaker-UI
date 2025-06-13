@@ -65,9 +65,34 @@ const setProjectInfo = (data) => {
 
         useEffect(() => {
          if (savedProjectInfo) {
-        reset(savedProjectInfo);
+          const formattedProjectInfo = {
+               ...savedProjectInfo,
+                 descriptionOne: Array.isArray(savedProjectInfo.descriptionOne)
+        ? savedProjectInfo.descriptionOne.join('\n')
+        : savedProjectInfo.descriptionOne,
+      descriptionTwo: Array.isArray(savedProjectInfo.descriptionTwo)
+        ? savedProjectInfo.descriptionTwo.join('\n')
+        : savedProjectInfo.descriptionTwo,
+          }
+        reset(formattedProjectInfo);
           }
         }, [savedProjectInfo, reset]);
+
+
+//          useEffect(() => {
+//   if (savedWorkExperience) {
+//     const formattedExperience = {
+//       ...savedWorkExperience,
+//       workDescriptionOne: Array.isArray(savedWorkExperience.workDescriptionOne)
+//         ? savedWorkExperience.workDescriptionOne.join('\n')
+//         : savedWorkExperience.workDescriptionOne,
+//       workDescriptionTwo: Array.isArray(savedWorkExperience.workDescriptionTwo)
+//         ? savedWorkExperience.workDescriptionTwo.join('\n')
+//         : savedWorkExperience.workDescriptionTwo,
+//     };
+//     reset(formattedExperience);
+//   }
+// }, [savedWorkExperience, reset]);
 
     return(
       <div className="flex justify-center items-center mt-3">

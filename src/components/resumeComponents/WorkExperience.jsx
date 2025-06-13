@@ -24,11 +24,20 @@ const inputHeight = {
 
     const savedWorkExperience = useSelector((state) => state.resume.workExperience);
 
-    useEffect(() => {
-     if (savedWorkExperience) {
-    reset(savedWorkExperience);
-      }
-    }, [savedWorkExperience, reset]);
+  useEffect(() => {
+  if (savedWorkExperience) {
+    const formattedExperience = {
+      ...savedWorkExperience,
+      workDescriptionOne: Array.isArray(savedWorkExperience.workDescriptionOne)
+        ? savedWorkExperience.workDescriptionOne.join('\n')
+        : savedWorkExperience.workDescriptionOne,
+      workDescriptionTwo: Array.isArray(savedWorkExperience.workDescriptionTwo)
+        ? savedWorkExperience.workDescriptionTwo.join('\n')
+        : savedWorkExperience.workDescriptionTwo,
+    };
+    reset(formattedExperience);
+  }
+}, [savedWorkExperience, reset]);
 
 
 
