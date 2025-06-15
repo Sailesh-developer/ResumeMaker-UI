@@ -30,7 +30,7 @@ module.exports =  {
         function ({ addUtilities }) {
       addUtilities({
         '.page-break': {
-          'page-break-after': 'always',
+          'page-break-before': 'always',
           'break-after': 'page',
         },
       });
