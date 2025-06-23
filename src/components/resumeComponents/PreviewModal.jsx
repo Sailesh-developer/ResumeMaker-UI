@@ -170,66 +170,7 @@ export default PreviewModal;
 
 
 
-// import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
-// import ResumeDocument from "./ResumeDocument";
-// import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 
-// const PreviewModal = () => {
-//   const navigate = useNavigate();
-//   const navigateToMain = () => navigate("/mainpage");
 
-//   const getSavedEducation = useSelector((state) => state.resume.education);
-//   const getSavedAchievements = useSelector((state) => state.resume.achievements);
-//   const getSavedPersonalInfo = useSelector((state) => state.resume.personalInfo);
-//   const getSavedProjectInfo = useSelector((state) => state.resume.projects);
-//   const getSavedTechnicalSkills = useSelector((state) => state.resume.technicalSkills);
-//   const getSavedWorkExperience = useSelector((state) => state.resume.workExperience);
-
-//   return (
-//     <div className="bg-black/70 flex flex-col items-center justify-center z-50 min-h-screen p-6">
-//       <div className="flex flex-row items-center gap-4 mb-4">
-//         <PDFDownloadLink
-//           document={
-//             <ResumeDocument
-//               personalInfo={getSavedPersonalInfo}
-//               technicalSkills={getSavedTechnicalSkills}
-//               workExperience={getSavedWorkExperience}
-//               projects={getSavedProjectInfo}
-//             />
-//           }
-//           fileName="resume.pdf"
-//         >
-//           {({ loading }) =>
-//             loading ? (
-//               <span className="text-slate-50 underline mt-2">Loading...</span>
-//             ) : (
-//               <span className="text-slate-50 underline mt-2 cursor-pointer">Download</span>
-//             )
-//           }
-//         </PDFDownloadLink>
-
-//         <button
-//           className="text-slate-50 underline mt-2 cursor-pointer"
-//           onClick={navigateToMain}
-//         >
-//           Close
-//         </button>
-//       </div>
-
-//       {/* PDF Preview */}
-//       <PDFViewer width="800" height="1000" className="shadow-lg">
-//         <ResumeDocument
-//           personalInfo={getSavedPersonalInfo}
-//           technicalSkills={getSavedTechnicalSkills}
-//           workExperience={getSavedWorkExperience}
-//           projects={getSavedProjectInfo}
-//         />
-//       </PDFViewer>
-//     </div>
-//   );
-// };
-
-// export default PreviewModal;
 
 
