@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../store/actions";
 import  toast from "react-hot-toast";
+import { useState } from "react";
+import Loader from "../shared/Loader";
 
 const Login = () => {
 
@@ -24,18 +26,22 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const [loading,setLoading] = useState(false);
+
     const userLoginToMain = async (data) => {
-           dispatch(userLogin(data,navigate,toast))
+           dispatch(userLogin(data,navigate,toast, setLoading))
     }
 
     const username = watch('username');
     const password = watch('password');
 
+    
 
     return(
-          <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
-            
 
+                <div className="min-h-[calc(100vh-70px)] flex flex-col md:flex-row justify-center items-center">
+            
+                {loading && <Loader />}
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 gap-y-6 mt-12">
                 <img src={resume_image} alt="" className="max-w-full h-auto"/>
                 <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#52E5E7] to-[#130CB7] text-center font-montserrat lg:text-4xl text-2xl font-bold mr-12.5 ">Craft Your Resume. Shape Your Future</p>
@@ -77,6 +83,7 @@ const Login = () => {
             
                 </div>
                 </div>
+           
     )
 }
 

@@ -1,10 +1,11 @@
 import { api } from "../../api/api";
 
 
-export const userLogin = (sendData,navigate,toast) => async (dispatch) => {
+export const userLogin = (sendData,navigate,toast,setLoading) => async (dispatch) => {
     try{
     const { data } = await api.post("/auth/login" , sendData);
     localStorage.setItem("auth" , JSON.stringify(data));
+    setLoading(true);
     dispatch({
         type : "USER_LOGIN",
         payload : data,
@@ -15,9 +16,12 @@ export const userLogin = (sendData,navigate,toast) => async (dispatch) => {
 }
    catch(error){
      if(error.status === 404)
-     toast.error("User does not exist. Register and try again.")
-   };
-   
+     toast.error("User does not exist. Register and try again.");
+     setLoading(false);
+   }
+   finally{
+    setLoading(false);
+   }
 }
 
 
